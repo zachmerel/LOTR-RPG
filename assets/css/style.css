@@ -1,0 +1,85 @@
+.character-background{
+    background-color: white;
+    border: solid 2px black;
+}
+
+.character-tile{
+    padding: 0%;
+}
+
+#background{
+    background-image:url(/unit-4-game/assets/images/background.jpg);
+        background-size: cover;
+    }
+
+#characterText{
+    font-family: fantasy;
+    color: black;
+    font-size: small;
+    padding: 2px;
+    text-align: center;
+    }
+
+#gandalfHP{
+    text-align: center;
+    padding: 2px;
+    font-family: fantasy;
+    }
+
+#gandalfpic{
+    display: block;
+    margin: auto;
+    }
+
+#gimliHP{
+    text-align: center;
+    padding: 2px;
+    font-family: fantasy;
+    }
+
+#gimlipic{
+    display: block;
+    margin: auto;
+    }
+
+#gollumHP{
+    text-align: center;
+    padding: 2px;
+    font-family: fantasy;
+    }
+
+#gollumpic{
+    display: block;
+    margin: auto;
+    }
+
+#legolasHP{
+    text-align: center;
+    padding: 2px;
+    font-family: fantasy;
+    }
+
+#legolaspic{
+    display: block;
+    margin: auto;
+    }
+
+#pic{
+    display: block;
+    margin: auto;
+    }
+#sectionText{
+    font-family: fantasy;
+    color: black;
+    font-size: large;
+    margin: 20px;
+    }
+
+#titleText{
+    font-family: fantasy;
+    color: black;
+    text-align: center;
+    font-size: x-large;
+    margin: 20px;
+}
+
