@@ -1,3 +1,13 @@
+
+/* body { 
+  background:  url(https://media.giphy.com/media/csrTZ7cBdKg24/giphy.gif) no-repeat; 
+  background-size: cover;
+} */
+body{
+    background-image:url("../images/background.jpg");
+        background-size: cover;
+    }
+    
 .character-background{
     background-color: white;
     border: solid 2px black;
@@ -7,10 +17,6 @@
     padding: 0%;
 }
 
-#background{
-    background-image:url(/unit-4-game/assets/images/background.jpg);
-        background-size: cover;
-    }
 
 #characterText{
     font-family: fantasy;

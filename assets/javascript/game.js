@@ -1,3 +1,4 @@
+$(document).ready(function() {
 //Set Character HP
 var gandalfHP = 180;
 var legolasHP = 150;
@@ -10,10 +11,14 @@ $('#gimliHP').append(gimliHP);
 $('#legolasHP').append(legolasHP);
 $('#gollumHP').append(gollumHP);
 
+var gandalfCT = $("#gandalfCT");
+var gimliCT = $("#gimliCT");
+var gollumCT = $("#gollumCT");
+var legolasCT = $("#legolasCT");
+//on-click function to choose Gandalf as your character
 $("#gandalfpic").on("click", function(){
-    var gandalfCT = $("<div>");
-    gandalfCT.setAttribute("src", "gandalf.jpg");
-    gandalfCT.addClass("character-tile character-background") 
-    gandalfHP.addID
-    $('#gandalfCT').append(your-character);
+  
+    $('#your-character').append(gandalfCT);
+    $('#enemies-avaliable-to-attack').append(gimliCT, gollumCT, legolasCT);
 });
+})
