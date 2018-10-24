@@ -32,25 +32,60 @@ $(document).ready(function () {
     $('.gollumHP').append(Gollum.HP);
 
     //makes each character div a variable to append to different div.
-    var gandalfCT = $("#gandalfCT");
+    var gandalfCT;
     var gimliCT = $("#gimliCT");
     var gollumCT = $("#gollumCT");
     var legolasCT = $("#legolasCT");
+    var yourCharacter ;
+// onclick function using jquery this to simplify code
+    $(".character-tile").on("click", function(){console.log($('#your-character'))
+        // characterChoice(this)
+        if($('#your-character').is(':empty')){console.log("if")
+            characterChoice(this);
+        }
+        else {console.log("else")
+            defenderArea(this);
+        }
 
+    })
     //on-click function to choose Gandalf as your character
     $("#gandalfpic").on("click", function () {
-        characterChoice(gandalfCT)
+        // characterChoice(gandalfCT)
         // $('#your-character').append(gandalfCT);
-        eata(gimliCT, gollumCT, legolasCT);
-        // $(".eataP1").append(gimliCT);
-        // $(".eataP2").append(gollumCT);
-        // $(".eataP3").append(legolasCT);
+        // eata(gimliCT, gollumCT, legolasCT);
+
+        //------CHANGES ENEMY BACKGROUND TO RED--------
+
+        // $("#gimliBackground").addClass(function (index, currentClass) {
+        //     var addedBackgroundClass;
+
+        //     if (currentClass === "neutral-character-background") {
+        //         addedBackgroundClass = "enemy-character-background";
+        //     }
+        //     return addedBackgroundClass;
+        // });
+        // $("#gollumBackground").addClass(function (index, currentClass) {
+        //     var addedBackgroundClass;
+
+        //     if (currentClass === "neutral-character-background") {
+        //         addedBackgroundClass = "enemy-character-background";
+        //     }
+        //     return addedBackgroundClass;
+        // });
+        // $("#legolasBackground").addClass(function (index, currentClass) {
+        //     var addedBackgroundClass;
+
+        //     if (currentClass === "neutral-character-background") {
+        //         addedBackgroundClass = "enemy-character-background";
+        //     }
+        //     return addedBackgroundClass;
+        // });
         $("#gimlipic").on("click", function () {
             defenderArea(gimliCT);
             $("#gimliBackground").addClass(function (index, currentClass) {
                 var addedBackgroundClass;
 
-                if (currentClass === "neutral-character-background") {
+                if (currentClass === "enemy-character-background") {
                     addedBackgroundClass = "defender-character-background";
                 }
                 return addedBackgroundClass;
@@ -129,32 +164,7 @@ $(document).ready(function () {
 
     });
 
-    //on-click function to choose Gimli as your character
-    $("#gimlipic").on("click", function () {
-        characterChoice(gimliCT)
-        eata(gandalfCT, gollumCT, legolasCT);
-
-        // $(".eataP1").append(gimliCT);
-        // $(".eataP2").append(gollumCT);
-        // $(".eataP3").append(legolasCT);
-
-    });
-    //on-click function to choose Gollum as your character
-    $("#gollumpic").on("click", function () {
-        characterChoice(gollumCT)
-        eata(gandalfCT, gimliCT, legolasCT);
-        // $(".eataP1").append(gimliCT);
-        // $(".eataP2").append(gollumCT);
-        // $(".eataP3").append(legolasCT);
-    });
-    //on-click function to choose Legolas as your character
-    $("#legolaspic").on("click", function () {
-        characterChoice(legolasCT)
-        eata(gandalfCT, gimliCT, gollumCT);
-        // $(".eataP1").append(gimliCT);
-        // $(".eataP2").append(gollumCT);
-        // $(".eataP3").append(legolasCT);
-    });
+ 
 
     //Attack button on.click
     $("#button").on("click", function () {
@@ -166,13 +176,17 @@ $(document).ready(function () {
 
 
     // function to choose enemies avaliable to attack
-    function eata(a, b, c) {
-        $('#enemies-avaliable-to-attack').append(a, b, c);
+    function eata() {
+        var options = $('#character-choice').children()
+
+        // $('#enemies-avaliable-to-attack .enemiesrow').append(a, b, c);
+        $( '.enemiesrow').append(options);
     }
 
     //function to choose character you play as
     function characterChoice(CC) {
         $('#your-character').append(CC);
+        eata();
     }
 
     // function to choose character you fight

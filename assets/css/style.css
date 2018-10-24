@@ -33,10 +33,15 @@ body{
     border: solid 2px green;
     } 
 
-.enemy-character-background{
+.neutral-character-background.enemy-character-background{
     background-color: red;
     border: solid 2px black;
-}    
+    }    
+
+/* .enemy-character-background{
+    background-color: red;
+    border: solid 2px black;
+}     */
 
 .neutral-character-background{
     background-color: white;
