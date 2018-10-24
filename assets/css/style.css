@@ -17,6 +17,13 @@ body{
     padding: 0%;
 }
 
+.characterText{
+    font-family: fantasy;
+    color: black;
+    font-size: small;
+    padding: 2px;
+    text-align: center;
+    }
 
 #characterText{
     font-family: fantasy;
