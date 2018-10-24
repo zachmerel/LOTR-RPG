@@ -8,10 +8,6 @@ body{
         background-size: cover;
     }
     
-.character-background{
-    background-color: white;
-    border: solid 2px black;
-}
 
 .character-tile{
     padding: 0%;
@@ -24,19 +20,34 @@ body{
     padding: 2px;
     text-align: center;
     }
-
-#characterText{
+.characterText.characterTextWhite{
     font-family: fantasy;
-    color: black;
+    color: white;
     font-size: small;
     padding: 2px;
     text-align: center;
+}
+
+.neutral-character-background.defender-character-background{
+    background-color: black;
+    border: solid 2px green;
+    } 
+
+.enemy-character-background{
+    background-color: red;
+    border: solid 2px black;
+}    
+
+.neutral-character-background{
+    background-color: white;
+    border: solid 2px green;
     }
 
-#gandalfHP{
+.gandalfHP{
     text-align: center;
     padding: 2px;
     font-family: fantasy;
+    color:black;
     }
 
 #gandalfpic{
@@ -44,10 +55,17 @@ body{
     margin: auto;
     }
 
-#gimliHP{
+.gimliHP{
     text-align: center;
     padding: 2px;
     font-family: fantasy;
+    color:black;
+    }
+.gimliHPWhite{
+    text-align: center;
+    padding: 2px;
+    font-family: fantasy;
+    color:white;
     }
 
 #gimlipic{
@@ -55,10 +73,17 @@ body{
     margin: auto;
     }
 
-#gollumHP{
+.gollumHP{
     text-align: center;
     padding: 2px;
     font-family: fantasy;
+    color:black;
+    }
+.gollumHPWhite{
+    text-align: center;
+    padding: 2px;
+    font-family: fantasy;
+    color:white;
     }
 
 #gollumpic{
@@ -66,10 +91,17 @@ body{
     margin: auto;
     }
 
-#legolasHP{
+.legolasHP{
     text-align: center;
     padding: 2px;
     font-family: fantasy;
+    color:black;
+    }
+.legolasHPWhite{
+    text-align: center;
+    padding: 2px;
+    font-family: fantasy;
+    color: white
     }
 
 #legolaspic{
