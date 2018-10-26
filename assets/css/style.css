@@ -28,25 +28,27 @@ body{
     text-align: center;
 }
 
-.neutral-character-background.defender-character-background{
+/* .neutral-character-background.defender-character-background{
     background-color: black;
     border: solid 2px green;
-    } 
+    }  */
 
-.neutral-character-background.enemy-character-background{
+/* .neutral-character-background.enemy-character-background{
     background-color: red;
     border: solid 2px black;
-    }    
+    }     */
 
-/* .enemy-character-background{
+.enemy-character-background{
     background-color: red;
     border: solid 2px black;
-}     */
+}    
 
 .neutral-character-background{
     background-color: white;
     border: solid 2px green;
     }
+
+
 
 .gandalfHP{
     text-align: center;
@@ -131,5 +133,18 @@ body{
     text-align: center;
     font-size: x-large;
     margin: 20px;
+}
+#your-character-fight-stats{
+    font-family: fantasy;
+    color: black;
+    padding: 5px;
+    
+}
+
+#defender-character-fight-stats{
+    font-family: fantasy;
+    color: black;
+    padding: 5px;
+    
 }
 
