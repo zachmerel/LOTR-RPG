@@ -1,12 +1,12 @@
 $(document).ready(function () {
-   
+
     //hides restart button
     $("#restart-button").hide();
 
     //Objects for characters set HP, attack, counter attack
     var Gandalf = {
         name: "Gandalf",
-        startingHP : 180,
+        startingHP: 180,
         HP: 180,
         startingattackDamage: 8,
         attackDamage: 0,
@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     var Gimli = {
         name: "Gimli",
-        startingHP : 120,
+        startingHP: 120,
         HP: 120,
         startingattackDamage: 8,
         attackDamage: 0,
@@ -25,7 +25,7 @@ $(document).ready(function () {
 
     var Gollum = {
         name: "Gollum",
-        startingHP : 100,
+        startingHP: 100,
         HP: 100,
         startingattackDamage: 8,
         attackDamage: 0,
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     var Legolas = {
         name: "Legolas",
-        startingHP : 100,
+        startingHP: 100,
         HP: 150,
         startingattackDamage: 8,
         attackDamage: 0,
@@ -62,12 +62,9 @@ $(document).ready(function () {
     $(".character-tile").on("click", function () {
         if ($('#your-character').is(':empty')) {
             characterChoice(this);
-            console.log(this);
-            console.log($(this));
             // finds your character object
             if (this.id == "gandalfCT") {
                 yourCharacter = Gandalf;
-                console.log($(this));
             }
             else if (this.id == "gimliCT") {
                 yourCharacter = Gimli;
@@ -78,12 +75,12 @@ $(document).ready(function () {
             else {
                 yourCharacter = Legolas;
             }
-            console.log(yourCharacter)
+
             $("#your-character-fight-stats").html(" ");
         }
         //finds defender's object
         else {
-            console.log("else")
+
             defenderArea(this);
             if (this.id == "gandalfCT") {
                 attacker = Gandalf;
@@ -98,12 +95,12 @@ $(document).ready(function () {
             else {
                 attacker = Legolas;
             }
-            console.log($(this));
+
             $("#your-character-fight-stats").html(" ");
         }
 
     })
-    console.log(yourCharacter)
+
     //Attack button on.click
     $("#button").on("click", function () {
         //Plays theme of Modor!
@@ -118,7 +115,7 @@ $(document).ready(function () {
             $("#your-character-fight-stats").html("You have not selected a character to battle");
         }
         //displays who you are attacking and the damage done to them
-// `You attacked ${attacker.name} for ${yourCharacter.attack}.`
+
 
         else {
             $("#your-character-fight-stats").html("You attacked " + attacker.name + " for " + yourCharacter.attackDamage + " damage");
@@ -127,35 +124,29 @@ $(document).ready(function () {
             //decreases your character HP
         }
         yourCharacter.HP = yourCharacter.HP - attacker.counterAttack;
-        console.log(yourCharacter.HP)
-        console.log(typeof(yourCharacter.HP))
+
         // determines if you lose by measuring if your characer's HP is <= 0
         if (yourCharacter.HP <= 0) {
             $("#defender-character-fight-stats").html("Game over.... you lose!!!");
-            console.log("you lose")
             $("#your-character-fight-stats").html(" ");
             $("#restart-button").show();
 
         }
         //decreases defenders HP
         attacker.HP = attacker.HP - yourCharacter.attackDamage;
-        console.log(attacker.HP);
+
         //determines if you have won by seeing if current and waiting enemies are defeated
         if (attacker.HP <= 0 && $('.enemiesrow').is(':empty')) {
             $("#your-character-fight-stats").html("You Win!!!");
             $("#defender-character-fight-stats").html(" ");
             $("#restart-button").show();
         }
-        else if (attacker.HP <= 0){
+        else if (attacker.HP <= 0) {
             $("#defender").empty();
             $("#your-character-fight-stats").html(" ");
             $("#defender-character-fight-stats").html(" ");
         }
-        //should remove the character tile from the html
-        // else{
-        //     $().remove CT from the defender div
-        // }
-        console.log($(this));
+
         //Replaces current html of hp of your character and 
         //need to append yourcharacter hP into the hp id of who is in the yourcharacter div
         $(`.${yourCharacter.name}`).html(yourCharacter.HP);
@@ -169,7 +160,6 @@ $(document).ready(function () {
     function eata() {
         //look up jquery nest children (nth child)
         var options = $('#character-choice').removeClass('neutral-character-background').children().addClass('enemy-character-background');
-        // .children().removeClass('neutral-character-background').addClass('enemy-character-background');
         $('.enemiesrow').append(options);
     }
 
@@ -184,12 +174,12 @@ $(document).ready(function () {
         $('#defender').append(DA);
     }
     //restart button
-    $("#restart-button").click(function(){
+    $("#restart-button").click(function () {
         location.reload();
 
-    //audio track
-   
-    
+        //audio track
+
+
     });
     function playAudioLOT() {
         LOTTheme.play();
