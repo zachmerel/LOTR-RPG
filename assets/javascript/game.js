@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   
     //hides restart button
     $("#restart-button").hide();
 
@@ -105,6 +106,8 @@ $(document).ready(function () {
     console.log(yourCharacter)
     //Attack button on.click
     $("#button").on("click", function () {
+        //Plays theme of Modor!
+        playAudioLOT();
         yourCharacter.attackDamage = yourCharacter.attackDamage + yourCharacter.startingattackDamage;
         //displays message you haven't picked a character to play as
         if ($('#your-character').is(':empty')) {
@@ -183,11 +186,14 @@ $(document).ready(function () {
     //restart button
     $("#restart-button").click(function(){
         location.reload();
-        console.log(yourCharacter.HP)
 
-
+    //audio track
+   
+    
     });
-
+    function playAudioLOT() {
+        LOTTheme.play();
+    }
 })
 
 
