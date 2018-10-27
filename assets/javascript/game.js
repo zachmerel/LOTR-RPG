@@ -182,26 +182,6 @@ $(document).ready(function () {
     }
     //restart button
     $("#restart-button").click(function(){
-        // attacker.HP = yourCharacter.startingHP;
-        // yourCharacter.HP = yourCharacter.startingHP;
-        // yourCharacter.attackDamage = yourCharacter.startingattackDamage;
-        // $(".gandalfHP").html(Gandalf.startingHP)
-        // $(".gimliHP").html(Gimli.startingHP)
-        // $(".gollumHP").html(Gollum.startingHP)
-        // $(".legolasHP").html(Legolas.startingHP)
-        // // $('.gandalfHP').html(Gandalf.startingHP);
-        // // $('.gimliHP').text(Gimli.startingHP);
-        // // $('.legolasHP').html(Legolas.startingHP);
-        // // $('.gollumHP').html(Gollum.startingHP);
-        // console.log(Gimli.startingHP);
-        // // var gandalfCT = $("#gandalfCT")
-        // // var gimliCT = $("#gimliCT")
-        // // var gollumCT = $("#gollumfCT")
-        // // var legolasCT = $("#legolasfCT")
-        // $("#character-choice").append(gandalfCT,gimliCT,gollumCT,legolasCT);
-        // $("#restart-button").hide();
-        // $("#your-character-fight-stats").html(" ");
-        // $("#defender-character-fight-stats").html(" ");
         location.reload();
         console.log(yourCharacter.HP)
 

@@ -1,12 +1,12 @@
 
-/* body { 
+body { 
   background:  url(https://media.giphy.com/media/csrTZ7cBdKg24/giphy.gif) no-repeat; 
   background-size: cover;
-} */
-body{
+}
+/* body{
     background-image:url("../images/background.jpg");
         background-size: cover;
-    }
+    } */
     
 
 .character-tile{
@@ -28,15 +28,6 @@ body{
     text-align: center;
 }
 
-/* .neutral-character-background.defender-character-background{
-    background-color: black;
-    border: solid 2px green;
-    }  */
-
-/* .neutral-character-background.enemy-character-background{
-    background-color: red;
-    border: solid 2px black;
-    }     */
 
 .enemy-character-background{
     background-color: red;
@@ -122,28 +113,28 @@ body{
     }
 #sectionText{
     font-family: fantasy;
-    color: black;
+    color: white;
     font-size: large;
     margin: 20px;
     }
 
 #titleText{
     font-family: fantasy;
-    color: black;
+    color: white;
     text-align: center;
     font-size: x-large;
     margin: 20px;
 }
 #your-character-fight-stats{
     font-family: fantasy;
-    color: black;
+    color: white;
     padding: 5px;
     
 }
 
 #defender-character-fight-stats{
     font-family: fantasy;
-    color: black;
+    color: white;
     padding: 5px;
     
 }
