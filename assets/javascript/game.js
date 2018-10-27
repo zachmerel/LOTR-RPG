@@ -1,30 +1,41 @@
 $(document).ready(function () {
+    //hides restart button
+    $("#restart-button").hide();
+
     //Objects for characters set HP, attack, counter attack
     var Gandalf = {
         name: "Gandalf",
+        startingHP : 180,
         HP: 180,
-        attackDamage: 8,
+        startingattackDamage: 8,
+        attackDamage: 0,
         counterAttack: 25,
     }
 
     var Gimli = {
         name: "Gimli",
+        startingHP : 120,
         HP: 120,
-        attackDamage: 8,
+        startingattackDamage: 8,
+        attackDamage: 0,
         counterAttack: 10
     }
 
     var Gollum = {
         name: "Gollum",
+        startingHP : 100,
         HP: 100,
-        attackDamage: 8,
+        startingattackDamage: 8,
+        attackDamage: 0,
         counterAttack: 5
     }
 
     var Legolas = {
         name: "Legolas",
+        startingHP : 100,
         HP: 150,
-        attackDamage: 8,
+        startingattackDamage: 8,
+        attackDamage: 0,
         counterAttack: 20
     }
 
@@ -64,6 +75,7 @@ $(document).ready(function () {
                 yourCharacter = Legolas;
             }
             console.log(yourCharacter)
+            $("#your-character-fight-stats").html(" ");
         }
         //finds defender's object
         else {
@@ -71,53 +83,68 @@ $(document).ready(function () {
             defenderArea(this);
             if (this.id == "gandalfCT") {
                 attacker = Gandalf;
-                
+
             }
-            else if(this.id == "gimliCT"){
+            else if (this.id == "gimliCT") {
                 attacker = Gimli;
             }
-            else if(this.id == "gollumCT"){
+            else if (this.id == "gollumCT") {
                 attacker = Gollum;
             }
-            else{
+            else {
                 attacker = Legolas;
             }
             console.log($(this));
+            $("#your-character-fight-stats").html(" ");
         }
 
     })
     console.log(yourCharacter)
     //Attack button on.click
     $("#button").on("click", function () {
+        yourCharacter.attackDamage = yourCharacter.attackDamage + yourCharacter.startingattackDamage;
+        //displays message you haven't picked a character to play as
+        if ($('#your-character').is(':empty')) {
+            $("#your-character-fight-stats").html("You have not selected a character to play as");
+        }
+        //displays message sayiing you haven't picked character to battle
+        else if ($("#defender").is(':empty')) {
+            $("#your-character-fight-stats").html("You have not selected a character to battle");
+        }
         //displays who you are attacking and the damage done to them
-        $("#your-character-fight-stats").html("You attacked " + attacker.name + " for " + yourCharacter.attackDamage + " damage");
-        //displays who is attacking you and the damage they do to you
-        $("#defender-character-fight-stats").html(attacker.name + " attacked you back for " + attacker.counterAttack + " damage");
-        //decreases your character HP
+        else {
+            $("#your-character-fight-stats").html("You attacked " + attacker.name + " for " + yourCharacter.attackDamage + " damage");
+            //displays who is attacking you and the damage they do to you
+            $("#defender-character-fight-stats").html(attacker.name + " attacked you back for " + attacker.counterAttack + " damage");
+            //decreases your character HP
+        }
         yourCharacter.HP = yourCharacter.HP - attacker.counterAttack;
+        console.log(yourCharacter.HP)
         // determines if you lose by measuring if your characer's HP is <= 0
-            if(yourCharacter.HP <= 0){
-                $("your-character-fight-stats").replaceWith("Game over.... you lose!!!");
-                $("#defender-character-fight-stats").replaceWith("");
-            }
+        if (yourCharacter.HP <= 0) {
+            $("#defender-character-fight-stats").html("Game over.... you lose!!!");
+            $("#your-character-fight-stats").html(" ");
+            $("#restart-button").show();
+
+        }
         //decreases defenders HP
         attacker.HP = attacker.HP - yourCharacter.attackDamage;
         //determines if you have won by seeing if current and waiting enemies are defeated
-            if(attacker.HP <= 0 && $('.enemiesrow').is(':empty') ){
-                $("your-character-fight-stats").replaceWith("You Win!!!");
-                $("#defender-character-fight-stats").replaceWith("");
-            }
+        if (attacker.HP <= 0 && $('.enemiesrow').is(':empty')) {
+            $("#your-character-fight-stats").replaceWith("You Win!!!");
+            $("#defender-character-fight-stats").replaceWith("");
+        }
         //should remove the character tile from the html
-            // else{
-            //     $().remove CT from the defender div
-            // }
+        // else{
+        //     $().remove CT from the defender div
+        // }
         console.log($(this));
         //Replaces current html of hp of your character and 
         //need to append yourcharacter hP into the hp id of who is in the yourcharacter div
         $("hp id of who is in the yourcharacter div").replaceWith(yourCharacter.HP);
         $("hp id of who is in the defender div").replaceWith(attacker.HP)
         //doubles your character attack damage by
-        yourCharacter.attackDamage = yourCharacter.attackDamage*2;
+        // yourCharacter.attackDamage = yourCharacter.attackDamage + startingattackDamage;
     });
 
     // function to choose enemies avaliable to attack
@@ -138,6 +165,19 @@ $(document).ready(function () {
     function defenderArea(DA) {
         $('#defender').append(DA);
     }
+    //restart button
+    $("#restart-button").click(function(){
+        attacker.HP = yourCharacter.startingHP;
+        yourCharacter.HP = yourCharacter.startingHP;
+        yourCharacter.attackDamage = yourCharacter.startingattackDamage;
+        $("#character-choice").append(gandalfCT,gimliCT,gollumCT,legolasCT);
+        $("#restart-button").hide();
+        $("your-character-fight-stats").html(" ");
+        $("#defender-character-fight-stats").html(" ");
+        console.log(yourCharacter.HP)
+
+
+    });
 
 })
 
