@@ -10,6 +10,7 @@ $(document).ready(function () {
         startingattackDamage: 8,
         attackDamage: 0,
         counterAttack: 25,
+
     }
 
     var Gimli = {
@@ -50,9 +51,11 @@ $(document).ready(function () {
 
     //makes each character div a variable to append to different div.
     // var gandalfCT;
-    // var gimliCT = $("#gimliCT");
-    // var gollumCT = $("#gollumCT");
-    // var legolasCT = $("#legolasCT");
+    var gandalfCT = $("#gandalfCT");
+
+    var gimliCT = $("#gimliCT");
+    var gollumCT = $("#gollumCT");
+    var legolasCT = $("#legolasCT");
 
     // onclick function using jquery to choose your character and put others as enemies
     $(".character-tile").on("click", function () {
@@ -112,6 +115,8 @@ $(document).ready(function () {
             $("#your-character-fight-stats").html("You have not selected a character to battle");
         }
         //displays who you are attacking and the damage done to them
+// `You attacked ${attacker.name} for ${yourCharacter.attack}.`
+
         else {
             $("#your-character-fight-stats").html("You attacked " + attacker.name + " for " + yourCharacter.attackDamage + " damage");
             //displays who is attacking you and the damage they do to you
@@ -120,6 +125,7 @@ $(document).ready(function () {
         }
         yourCharacter.HP = yourCharacter.HP - attacker.counterAttack;
         console.log(yourCharacter.HP)
+        console.log(typeof(yourCharacter.HP))
         // determines if you lose by measuring if your characer's HP is <= 0
         if (yourCharacter.HP <= 0) {
             $("#defender-character-fight-stats").html("Game over.... you lose!!!");
@@ -137,7 +143,7 @@ $(document).ready(function () {
             $("#restart-button").show();
         }
         else if (attacker.HP <= 0){
-            $("#defender").html(" ");
+            $("#defender").empty();
             $("#your-character-fight-stats").html(" ");
             $("#defender-character-fight-stats").html(" ");
         }
@@ -148,8 +154,9 @@ $(document).ready(function () {
         console.log($(this));
         //Replaces current html of hp of your character and 
         //need to append yourcharacter hP into the hp id of who is in the yourcharacter div
-        $("hp id of who is in the yourcharacter div").replaceWith(yourCharacter.HP);
-        $("hp id of who is in the defender div").replaceWith(attacker.HP)
+        $(`.${yourCharacter.name}`).html(yourCharacter.HP);
+
+        $(`.${attacker.name}`).html(attacker.HP)
         //doubles your character attack damage by
         // yourCharacter.attackDamage = yourCharacter.attackDamage + startingattackDamage;
     });
@@ -177,6 +184,19 @@ $(document).ready(function () {
         attacker.HP = yourCharacter.startingHP;
         yourCharacter.HP = yourCharacter.startingHP;
         yourCharacter.attackDamage = yourCharacter.startingattackDamage;
+        $("#gandalfHP").html(Gandalf.startingHP)
+        $("#gimliHP").html(Gimli.startingHP)
+        $("#gollumHP").html(Gollum.startingHP)
+        $("#legolasHP").html(Legolas.startingHP)
+        // $('.gandalfHP').html(Gandalf.startingHP);
+        // $('.gimliHP').text(Gimli.startingHP);
+        // $('.legolasHP').html(Legolas.startingHP);
+        // $('.gollumHP').html(Gollum.startingHP);
+        console.log(Gimli.startingHP);
+        // var gandalfCT = $("#gandalfCT")
+        // var gimliCT = $("#gimliCT")
+        // var gollumCT = $("#gollumfCT")
+        // var legolasCT = $("#legolasfCT")
         $("#character-choice").append(gandalfCT,gimliCT,gollumCT,legolasCT);
         $("#restart-button").hide();
         $("#your-character-fight-stats").html(" ");
