@@ -129,10 +129,17 @@ $(document).ready(function () {
         }
         //decreases defenders HP
         attacker.HP = attacker.HP - yourCharacter.attackDamage;
+        console.log(attacker.HP);
         //determines if you have won by seeing if current and waiting enemies are defeated
         if (attacker.HP <= 0 && $('.enemiesrow').is(':empty')) {
-            $("#your-character-fight-stats").replaceWith("You Win!!!");
-            $("#defender-character-fight-stats").replaceWith("");
+            $("#your-character-fight-stats").html("You Win!!!");
+            $("#defender-character-fight-stats").html(" ");
+            $("#restart-button").show();
+        }
+        else if (attacker.HP <= 0){
+            $("#defender").html(" ");
+            $("#your-character-fight-stats").html(" ");
+            $("#defender-character-fight-stats").html(" ");
         }
         //should remove the character tile from the html
         // else{
@@ -172,7 +179,7 @@ $(document).ready(function () {
         yourCharacter.attackDamage = yourCharacter.startingattackDamage;
         $("#character-choice").append(gandalfCT,gimliCT,gollumCT,legolasCT);
         $("#restart-button").hide();
-        $("your-character-fight-stats").html(" ");
+        $("#your-character-fight-stats").html(" ");
         $("#defender-character-fight-stats").html(" ");
         console.log(yourCharacter.HP)
 
